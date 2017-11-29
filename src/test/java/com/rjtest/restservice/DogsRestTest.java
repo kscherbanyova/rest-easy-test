@@ -2,7 +2,6 @@ package com.rjtest.restservice;
 
 import static com.jayway.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.Test;
 
@@ -20,11 +19,5 @@ public class DogsRestTest extends BaseTest {
     public void verifyNameOfDog() {
         given().when().get("/dogs").then()
             .body(containsString("Labrador"));
-    }
-
-    @Test
-    public void verifyNameStructured() {
-        given().when().get("/dogs").then()
-            .body("name",equalTo("Labrador"));
     }
 }
