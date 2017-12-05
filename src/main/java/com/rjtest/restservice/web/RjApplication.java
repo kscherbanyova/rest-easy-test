@@ -1,8 +1,9 @@
-package com.rjtest.restservice;
+package com.rjtest.restservice.web;
 
 /**
  * Created by eshcherbanova on 11/19/17.
  */
+
 import javax.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Set;

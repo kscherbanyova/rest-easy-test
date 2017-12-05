@@ -1,4 +1,6 @@
-package com.rjtest.restservice;
+package com.rjtest.restservice.dao;
+
+import com.rjtest.restservice.dao.api.Dog;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -7,6 +9,7 @@ import java.util.List;
 /**
  * Created by eshcherbanova on 11/20/17.
  */
+@Deprecated
 public class DogsRepository {
   public static List<Dog> dogs = new ArrayList<Dog>();
 

@@ -1,12 +1,15 @@
-package com.rjtest.restservice;
+package com.rjtest.restservice.web;
 
-import java.util.List;
+import com.rjtest.restservice.dao.DogDaoImpl;
+import com.rjtest.restservice.dao.api.Dog;
+import com.rjtest.restservice.dao.api.DogDao;
+
+import java.util.Collection;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
@@ -18,29 +21,29 @@ import javax.ws.rs.core.Response;
 @Path("/dogs")
 public class DogResource {
 
+    DogDao dogDao = new DogDaoImpl();
+
     @GET
     @Produces("application/json")
-    public List<Dog> getDogs() {
-      return DogsRepository.getDogs();
+    public Collection<Dog> getDogs() {
+      return dogDao.getAll();
     }
 
 
     @GET
     @Path("{id}")
-    public String getDog(@QueryParam("isbn") String id) {
-      return "id=" + id;
+    public Dog getDog(@QueryParam("isbn") Integer id) {
+      return dogDao.get(id);
     }
-
 
     @POST
-    @Path("{id}")
+    //@Path("{id}")
     @Consumes("application/json")
     @Produces("text/plain")
-    public Response getById(@PathParam("id") String id, Dog dog)
+    public Response addDog(Dog dog)
     {
-      DogsRepository.addDog(dog);
+      dogDao.add(dog);
       return Response.created(null).entity("Dog created successfully").build();
     }
-
 
 }

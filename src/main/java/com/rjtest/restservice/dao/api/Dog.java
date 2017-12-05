@@ -1,6 +1,5 @@
-package com.rjtest.restservice;
+package com.rjtest.restservice.dao.api;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,13 +8,11 @@ import java.util.Date;
 public class Dog {
 
     private String name;
-
     private Date dateOfBirth;
     private int height;
     private int weight;
 
     public Dog(){}
-
 
     public Dog(String name, int height, int weight){
         this.name = name;
