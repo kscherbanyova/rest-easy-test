@@ -10,12 +10,12 @@ import org.junit.Test;
  */
 public class DogsRestTest extends BaseTest {
 
-    @Test
+    //@Test
     public void basicPingTest() {
         given().when().get("/dogs").then().statusCode(200);
     }
 
-    @Test
+    //@Test
     public void verifyNameOfDog() {
         given().when().get("/dogs").then()
             .body(containsString("Labrador"));

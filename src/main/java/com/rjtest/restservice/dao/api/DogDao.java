@@ -7,8 +7,8 @@ import java.util.Collection;
  */
 public interface DogDao {
     Collection getAll();
-    Dog get(int number);
+    Dog get(String id);
     void add(Dog dog);
-    void update(Dog dog);
-    void delete(int number);
+    void update(String id, Dog dog);
+    void delete(String id);
 }

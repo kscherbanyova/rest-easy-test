@@ -3,6 +3,8 @@ package com.rjtest.restservice.dao;
 import com.rjtest.restservice.dao.api.Dog;
 import com.rjtest.restservice.dao.api.DogDao;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,9 +12,10 @@ import java.util.Map;
 /**
  * Created by eshcherbanova on 11/19/17.
  */
+@Repository
 public class DogDaoImpl implements DogDao {
 
-    public static Map<Integer, Dog> dogs;
+    private static Map<Integer, Dog> dogs;
 
     public DogDaoImpl(){
         dogs = new HashMap<Integer, Dog>();
@@ -24,10 +27,9 @@ public class DogDaoImpl implements DogDao {
         dogs.put(6, new Dog("Boxer", 20, 25));
     }
 
-    //spring
 //    @PostConstruct
 //    public void init() {
-//        dogs = new HashMap<Integer, Dog>()
+//        dogs = new HashMap<Integer, Dog>();
 //        dogs.put(1, new Dog("Sheltie", 33, 7));
 //        dogs.put(2, new Dog("Labrador", 57, 30));
 //        dogs.put(3, new Dog("Beagle", 36, 10));
@@ -40,8 +42,8 @@ public class DogDaoImpl implements DogDao {
         return dogs.values();
     }
 
-    public Dog get(int number) {
-        return dogs.get(number);
+    public Dog get(String number) {
+        return dogs.get(Integer.valueOf(number));
     }
 
     public void add(Dog dog){
@@ -49,11 +51,11 @@ public class DogDaoImpl implements DogDao {
 
     }
 
-    public void update(Dog dog) {
-        //dogs.get(1);
+    public void update(String number, Dog dog) {
+        dogs.put(Integer.valueOf(number), dog);
     }
 
-    public void delete(int number) {
-        dogs.remove(number);
+    public void delete(String id) {
+        dogs.remove(id);
     }
 }

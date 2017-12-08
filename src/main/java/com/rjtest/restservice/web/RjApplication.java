@@ -4,6 +4,11 @@ package com.rjtest.restservice.web;
  * Created by eshcherbanova on 11/19/17.
  */
 
+import com.rjtest.restservice.config.SpringConfig;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import javax.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,7 +24,8 @@ public class RjApplication extends Application
 
   public RjApplication()
   {
-    singletons.add(new DogResource());
+    ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    singletons.add(context.getBean(DogResource.class));
   }
 
   @Override
