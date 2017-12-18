@@ -1,6 +1,6 @@
 package com.rjtest.restservice.web;
 
-import com.rjtest.restservice.dao.api.Dog;
+import com.rjtest.restservice.model.Dog;
 import com.rjtest.restservice.service.DogService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,6 @@ public class DogResource {
     @GET
     @Produces("application/json")
     public Collection<Dog> getDogs() {
-      System.out.println("We are in the getDogs method and service = " + service);
       return service.getDogs();
     }
 
@@ -48,5 +47,4 @@ public class DogResource {
       service.addDog(dog);
       return Response.created(null).entity("Dog created successfully").build();
     }
-
 }

@@ -1,7 +1,7 @@
 package com.rjtest.restservice.service;
 
-import com.rjtest.restservice.dao.api.Dog;
 import com.rjtest.restservice.dao.api.DogDao;
+import com.rjtest.restservice.model.Dog;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

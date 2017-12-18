@@ -1,5 +1,7 @@
 package com.rjtest.restservice.dao.api;
 
+import com.rjtest.restservice.model.Dog;
+
 import java.util.Collection;
 
 /**
